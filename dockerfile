@@ -17,8 +17,8 @@ RUN apt-get install -y bzip2
 RUN apt-get install net-tools
 # RUN apt-get install python-pip -y
 # passwordless ssh
-RUN ssh-keygen -t dsa -P '' -f /root/.ssh/id_dsa
-RUN cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+RUN ssh-keygen -t rsa -P '' -f /root/.ssh/id_rsa
+RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 # java
 RUN apt-get install default-jre -y
