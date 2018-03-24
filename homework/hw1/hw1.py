@@ -1,4 +1,5 @@
-import findspark
+import findspar
+findspark.init()
 from pyspark import SparkContext, SparkConf
 
 # Spark configure.
@@ -7,7 +8,6 @@ sparkAppName="hw1"
 sparkExecutorMemory="2g"
 sparkCoreMax="4"
 # init.
-findspark.init()
 # Setting Spark conf.
 conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.executor.memory",sparkExecutorMemory)
 sc = SparkContext(conf=conf)
