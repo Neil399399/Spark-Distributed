@@ -6,19 +6,7 @@ from pyspark import SparkContext, SparkConf
 
 def parser(line):
     values = [x for x in line.split(";")]
-    newValues=[]
-    for i in range(0,len(values)): 
-        newValues.append(values[i][0])
-        newValues.append(values[i][1])
-        newValues.append(float(values[i][2]))
-        newValues.append(float(values[i][3]))
-        newValues.append(float(values[i][4]))
-        newValues.append(float(values[i][5]))
-        newValues.append(float(values[i][6]))
-        newValues.append(float(values[i][7]))
-        newValues.append(float(values[i][8]))
-        
-    return newValues
+    return values
 
 
 # Spark configure.
@@ -35,10 +23,10 @@ sc = SparkContext(conf=conf)
 dataset = sc.textFile("file:/root/homework/dataset/hw1/household_power_consumption.txt")
 print("dataset long:",dataset.count())
 header = dataset.first()
-subData1 = dataset.filter(lambda x: x !=header).filter(lambda x: x!="?")
+subData1 = dataset.filter(lambda x: x !=header).filter(lambda x: !x.contains("?"))
 print("subData long:",subData1.count())
 # map.
-parserResult = subData1.map(parser).map(lambda x: x[3]).collect()
+parserResult = subData1.map(parser).map(lambda x: x[3]).max()
 print("check parser result:",parserResult)
 print("Max global active power:")
 
