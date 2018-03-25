@@ -24,10 +24,10 @@ dataset = sc.textFile("file:/root/homework/dataset/hw1/household_power_consumpti
 print("dataset long:",dataset.count())
 header = dataset.first()
 subData1 = dataset.filter(lambda x: x !=header)
-print("subData long:",subData1.count())
 # map for gap.
 parserResult = subData1.map(parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
+gapNormalization = gap.map(lambda x: x[2]-gap.min()/gap.max()-gap-min())
 # map for grp.
 parserResult2 = subData1.map(parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
@@ -38,15 +38,13 @@ vol = parserResult3.map(lambda x: float(x[4]))
 parserResult4 = subData1.map(parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
 
-print("/------------ Question 1 2 ---------------/")
-print("Max global active power:",gap.stats())
-print("Max global reactive power:",grp.stats())
-print("Max voltage:",vol.stats())
-print("Max global intensity:",gi.stats())
+print("/------------ Question 1, 2 ---------------/")
+print("Global active power:",gap.stats())
+print("Global reactive power:",grp.stats())
+print("Voltage:",vol.stats())
+print("Global intensity:",gi.stats())
 
-
-
-
-
+print("/------------ Question 3 ---------------/")
+print("Global active power:",gapNormalization.collect())
 
 
