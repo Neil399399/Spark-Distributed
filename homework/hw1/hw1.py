@@ -23,12 +23,12 @@ sc = SparkContext(conf=conf)
 dataset = sc.textFile("file:/root/homework/dataset/hw1/household_power_consumption.txt")
 print("dataset long:",dataset.count())
 header = dataset.first()
-subData1 = dataset.filter(lambda x: x !=header)
+subData1 = dataset.filter(lambda x: x !=header).map(parser) 
 print("subData long:",subData1.count())
 
 # map.
-parserResult = subData1.map(parser)
-print("check parser result:",parserResult.count())
+# parserResult = subData1.map(parser)
+# print("check parser result:",parserResult.count())
 print("Max global active power:")
 
 
