@@ -39,21 +39,21 @@ parserResult4 = subData1.map(parser).filter(lambda x: x[5]!="?")
 gi = parserResult.map(lambda x: float(x[5]))
 
 print("/------------ Question 1 ---------------/")
-print("Max global active power:",gap.max())
+print("Max global active power:",gap.stats())
 print("Min global active power:",gap.min())
-print("global active power column:",parserResult.count())
+print("global active power columns:",parserResult.count())
 
 print("Max global reactive power:",grp.max())
 print("Min global reactive power:",grp.min())
-print("global reactive power column:",parserResult2.count())
+print("global reactive power columns:",parserResult2.count())
 
 print("Max voltage:",vol.max())
 print("Min voltage",vol.min())
-print("voltage column:",parserResult3.count())
+print("voltage columns:",parserResult3.count())
 
 print("Max global intensity:",gi.max())
 print("Min global intensity:",gi.min())
-print("global intensity column:",parserResult4.count())
+print("global intensity columns:",parserResult4.count())
 
 
 
