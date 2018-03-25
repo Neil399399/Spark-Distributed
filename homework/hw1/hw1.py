@@ -8,6 +8,13 @@ def parser(line):
     values = [x for x in line.split(";")]
     return values
 
+def normalization(x):
+    max = x.max()
+    min = x.min()
+    result = x.map(lambda x: (x-min)/(max-min))
+    return result
+
+
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
 sparkAppName="hw1"
@@ -26,9 +33,10 @@ subData1 = dataset.filter(lambda x: x !=header)
 # map for gap.
 parserResult = subData1.map(parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
-max = gap.max()
-min = gap.min()
-normalization = gap.map(lambda x: (x-min)/(max-min) )
+result =normalization(gap)
+# max = gap.max()
+# min = gap.min()
+# normalization = gap.map(lambda x: (x-min)/(max-min))
 # map for grp.
 parserResult2 = subData1.map(parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
@@ -39,6 +47,7 @@ vol = parserResult3.map(lambda x: float(x[4]))
 parserResult4 = subData1.map(parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
 
+
 print("/------------ Question 1, 2 ---------------/")
 print("Global active power:",gap.stats())
 print("Global reactive power:",grp.stats())
@@ -46,6 +55,6 @@ print("Voltage:",vol.stats())
 print("Global intensity:",gi.stats())
 
 print("/------------ Question 3 ---------------/")
-print("Global active power:",normalization.collect())
+print("Global active power:",result.collect())
 
 
