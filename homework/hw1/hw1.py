@@ -46,6 +46,6 @@ print("Voltage:",vol.stats())
 print("Global intensity:",gi.stats())
 
 print("/------------ Question 3 ---------------/")
-print("Global active power:",normalization.count())
+print("Global active power:",normalization.collect())
 
 
