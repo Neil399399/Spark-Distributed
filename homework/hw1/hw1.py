@@ -8,8 +8,8 @@ def parser(line):
     values = [x for x in line.split(";")]
     newValues=[]
     for i in range(0,len(values)): 
-        newValues.append(values[i][0].toString)
-        newValues.append(values[i][1].toString)
+        newValues.append(values[i][0])
+        newValues.append(values[i][1])
         newValues.append(values[i][2].toDouble)
         newValues.append(values[i][3].toDouble)
         newValues.append(values[i][4].toDouble)
