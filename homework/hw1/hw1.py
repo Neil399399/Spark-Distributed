@@ -8,7 +8,6 @@ def parser(line):
     values = [x for x in line.split(";")]
     return values
 
-
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
 sparkAppName="hw1"
@@ -29,7 +28,6 @@ parserResult = subData1.map(parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
 max = gap.max()
 min = gap.min()
-gapNormalization = gap.map(lambda x: x[2]-max/max-min)
 # map for grp.
 parserResult2 = subData1.map(parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
