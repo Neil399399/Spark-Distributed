@@ -26,7 +26,7 @@ header = dataset.first()
 subData1 = dataset.filter(lambda x: x !=header)
 print("subData long:",subData1.count())
 # map.
-parserResult = subData1.map(parser).map(lambda x: x[3]!="?").map(lambda x: float(x[3])).max()
+parserResult = subData1.map(parser).map(lambda x: x[3]!="?").max()
 print("check parser result:",parserResult)
 print("Max global active power:")
 
