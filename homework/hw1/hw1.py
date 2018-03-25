@@ -28,7 +28,7 @@ print("subData long:",subData1.count())
 
 # map.
 parserResult = subData1.map(parser)
-print("check parser result:",parserResult,count())
+print("check parser result:",parserResult.count())
 print("Max global active power:")
 
 
