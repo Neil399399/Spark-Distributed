@@ -5,7 +5,7 @@ from pyspark import SparkContext, SparkConf
 
 
 def parser(line):
-    values = [float(x) for x in line.split(";")]
+    values = [x for x in line.split(";")]
     return values
 
 
