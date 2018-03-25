@@ -6,7 +6,18 @@ from pyspark import SparkContext, SparkConf
 
 def parser(line):
     values = [x for x in line.split(";")]
-    return values
+    newValues=[]
+    for i in range(0,len(values)): 
+        newValues.append(values[i][0].toString)
+        newValues.append(values[i][1].toString)
+        newValues.append(values[i][2].toDouble)
+        newValues.append(values[i][3].toDouble)
+        newValues.append(values[i][4].toDouble)
+        newValues.append(values[i][5].toDouble)
+        newValues.append(values[i][6].toDouble)
+        newValues.append(values[i][7].toDouble)
+        newValues.append(values[i][8].toDouble)
+    return newValues
 
 
 # Spark configure.
