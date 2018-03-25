@@ -3,6 +3,12 @@ import findspark
 findspark.init()
 from pyspark import SparkContext, SparkConf
 
+
+def parser(line):
+    values = [float(x) for x in line.split(";")]
+    return values
+
+
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
 sparkAppName="hw1"
@@ -28,9 +34,7 @@ print("Max global active power:")
 
 
 
-def parser(line):
-    values = [float(x) for x in line.split(";")]
-    return values
+
 
 
 
