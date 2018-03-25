@@ -30,30 +30,19 @@ parserResult = subData1.map(parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
 # map for grp.
 parserResult2 = subData1.map(parser).filter(lambda x: x[3]!="?")
-grp = parserResult.map(lambda x: float(x[3]))
+grp = parserResult2.map(lambda x: float(x[3]))
 # map for voltage.
 parserResult3 = subData1.map(parser).filter(lambda x: x[4]!="?")
-vol = parserResult.map(lambda x: float(x[4]))
+vol = parserResult3.map(lambda x: float(x[4]))
 # map for global intensity.
 parserResult4 = subData1.map(parser).filter(lambda x: x[5]!="?")
-gi = parserResult.map(lambda x: float(x[5]))
+gi = parserResult4.map(lambda x: float(x[5]))
 
-print("/------------ Question 1 ---------------/")
+print("/------------ Question 1 2 ---------------/")
 print("Max global active power:",gap.stats())
-print("Min global active power:",gap.min())
-print("global active power columns:",parserResult.count())
-
-print("Max global reactive power:",grp.max())
-print("Min global reactive power:",grp.min())
-print("global reactive power columns:",parserResult2.count())
-
-print("Max voltage:",vol.max())
-print("Min voltage",vol.min())
-print("voltage columns:",parserResult3.count())
-
-print("Max global intensity:",gi.max())
-print("Min global intensity:",gi.min())
-print("global intensity columns:",parserResult4.count())
+print("Max global reactive power:",grp.stats())
+print("Max voltage:",vol.stats())
+print("Max global intensity:",gi.stats())
 
 
 
