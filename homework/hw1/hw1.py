@@ -10,13 +10,14 @@ def parser(line):
     for i in range(0,len(values)): 
         newValues.append(values[i][0])
         newValues.append(values[i][1])
-        newValues.append(values[i][2].toDouble)
-        newValues.append(values[i][3].toDouble)
-        newValues.append(values[i][4].toDouble)
-        newValues.append(values[i][5].toDouble)
-        newValues.append(values[i][6].toDouble)
-        newValues.append(values[i][7].toDouble)
-        newValues.append(values[i][8].toDouble)
+        newValues.append(float(values[i][2]))
+        newValues.append(float(values[i][3]))
+        newValues.append(float(values[i][4]))
+        newValues.append(float(values[i][5]))
+        newValues.append(float(values[i][6]))
+        newValues.append(float(values[i][7]))
+        newValues.append(float(values[i][8]))
+        
     return newValues
 
 
