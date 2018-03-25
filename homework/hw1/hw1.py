@@ -27,7 +27,9 @@ subData1 = dataset.filter(lambda x: x !=header)
 # map for gap.
 parserResult = subData1.map(parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
-gapNormalization = gap.map(lambda x: x[2]-gap.min()/gap.max()-gap-min())
+max = gap.max()
+min = gap.min()
+gapNormalization = gap.map(lambda x: x[2]-max/max-min)
 # map for grp.
 parserResult2 = subData1.map(parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
