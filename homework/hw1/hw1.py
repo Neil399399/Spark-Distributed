@@ -25,7 +25,7 @@ def Writer(filename,contant1,contant2,contant3,contant4):
     file.close()
 
 # Spark configure.
-sparkMaster="spark://172.17.0.2:7077"
+sparkMaster="spark://172.17.0.5:7077"
 sparkAppName="hw1"
 sparkExecutorMemory="2g"
 sparkCoreMax="4"
