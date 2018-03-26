@@ -19,7 +19,7 @@ def Writer(filename,contant1,contant2,contant3,contant4):
     file = open(filename,'a')
     writer = csv.writer(file)
     values=[]
-    for i in range(0,len(contant)):
+    for i in range(0,len(contant1)):
         values=[contant1[i],contant2[i],contant3[i],contant4[i]]
         writer.writerows(values)
     file.close()
