@@ -64,8 +64,8 @@ gi = parserResult4.map(lambda x: float(x[5]))
 # write in file.
 for i in range(0,len(gapN)):
     newValues=[]
-    newValues.append(gapN[i])
-    newValues.append(grpN[i])
+    newValues.append(float(gapN[i]))
+    newValues.append(float(grpN[i]))
     Writer(outputFile,newValues)
 
 
