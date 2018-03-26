@@ -56,7 +56,7 @@ grpN =Normalization(grp)
 # map for voltage.
 parserResult3 = subData1.map(Parser).filter(lambda x: x[4]!="?")
 vol = parserResult3.map(lambda x: float(x[4]))
-volN =Normalization(volN)
+volN =Normalization(vol)
 
 # map for global intensity.
 parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
