@@ -46,22 +46,22 @@ subData1 = dataset.filter(lambda x: x !=header)
 # map for gap.
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
-gapN =Normalization(gap)
+gapN = Normalization(gap).collect()
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
-grpN =Normalization(grp)
+grpN = Normalization(grp).collect()
 
 # map for voltage.
 parserResult3 = subData1.map(Parser).filter(lambda x: x[4]!="?")
 vol = parserResult3.map(lambda x: float(x[4]))
-volN =Normalization(vol)
+volN = Normalization(vol).collect()
 
 # map for global intensity.
 parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
-giN =Normalization(gi)
+giN = Normalization(gi).collect()
 
 # write in file.
 Writer(outputFile,gapN,grpN,volN,giN)
