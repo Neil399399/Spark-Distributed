@@ -47,6 +47,7 @@ subData1 = dataset.filter(lambda x: x !=header)
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
 gapN = Normalization(gap)
+res = gapN.collect()
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
@@ -64,7 +65,7 @@ gi = parserResult4.map(lambda x: float(x[5]))
 # giN = Normalization(gi)
 
 # write in file.
-Writer(outputFile,gapN)
+Writer(outputFile,res)
 
 print("/------------ Question 1, 2 ---------------/")
 print("Global active power:",gap.stats())
