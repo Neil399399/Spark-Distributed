@@ -27,7 +27,7 @@ def Writer(filename,contant1,contant2,contant3,contant4):
 # Spark configure.
 sparkMaster="spark://172.17.0.5:7077"
 sparkAppName="hw1"
-sparkExecutorMemory="2g"
+sparkExecutorMemory="3g"
 sparkCoreMax="4"
 outputFile = "result.txt"
 
@@ -51,17 +51,17 @@ gapN = Normalization(gap).collect()
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
-grpN = Normalization(grp).collect()
+grpN = Normalization(grp)
 
 # map for voltage.
 parserResult3 = subData1.map(Parser).filter(lambda x: x[4]!="?")
 vol = parserResult3.map(lambda x: float(x[4]))
-volN = Normalization(vol).collect()
+volN = Normalization(vol)
 
 # map for global intensity.
 parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
-giN = Normalization(gi).collect()
+giN = Normalization(gi)
 
 print(gapN)
 # write in file.
