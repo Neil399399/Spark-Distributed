@@ -20,7 +20,7 @@ def Writer(filename,contant1):
     writer = csv.writer(file)
     values=[]
     for i in range(0,len(contant1)):
-        values.append(contant1[i])
+        values=[contant1[i]]
         writer.writerows(values)
     file.close()
 
