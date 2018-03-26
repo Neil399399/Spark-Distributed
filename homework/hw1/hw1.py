@@ -45,8 +45,8 @@ subData1 = dataset.filter(lambda x: x !=header)
 
 # map for gap.
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
-gap = parserResult.map(lambda x: float(x[2]))
-gapN = Normalization(gap).collect()
+gap = parserResult
+gapN = Normalization(gap)
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
