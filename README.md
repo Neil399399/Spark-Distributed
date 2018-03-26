@@ -3,7 +3,11 @@ Big Data Mining and Applications, Spring 2018.
 This course discusses issues in scalable mining of big data in various applications, which is gaining more popularity in recent years. 
 The major focus in this course will be utilizing parallel progamming in distributed platforms for efficient mining of different kinds of big data. 
 
-
+## Work-Detail
+### HW1
+Hadoop/Spark distributed mode setup & simple calculation in MapReduce.
+### HW2
+Statistics of various data types in MapReduce (co-occurrence).
 ## Establish Spark Cluster
 If you want to have one spark cluster in local, please follow the step to setting your enviroment.
 
