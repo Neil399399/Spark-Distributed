@@ -62,11 +62,12 @@ gi = parserResult4.map(lambda x: float(x[5]))
 # giN = Normalization(gi)
 
 # write in file.
-for i in range(0,len(gapN)):
-    newValues=[]
-    newValues.append(float(gapN[i]))
-    newValues.append(float(grpN[i]))
-    Writer(outputFile,newValues)
+print(float(gapN[3]))
+# for i in range(0,len(gapN)):
+#     newValues=[]
+#     newValues.append(float(gapN[i]))
+#     newValues.append(float(grpN[i]))
+#     Writer(outputFile,newValues)
 
 
     
