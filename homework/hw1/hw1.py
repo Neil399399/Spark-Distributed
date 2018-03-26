@@ -63,8 +63,9 @@ parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
 giN = Normalization(gi).collect()
 
+print(gapN)
 # write in file.
-Writer(outputFile,gapN,grpN,volN,giN)
+# Writer(outputFile,gapN,grpN,volN,giN)
 
 print("/------------ Question 1, 2 ---------------/")
 print("Global active power:",gap.stats())
@@ -73,9 +74,9 @@ print("Voltage:",vol.stats())
 print("Global intensity:",gi.stats())
 
 print("/------------ Question 3 ---------------/")
-print("Global active power:",gapN.count())
-print("Global reactive power:",grpN.count())
-print("Voltage:",volN.count())
-print("Global intensity:",giN.count())
+# print("Global active power:",gapN.count())
+# print("Global reactive power:",grpN.count())
+# print("Voltage:",volN.count())
+# print("Global intensity:",giN.count())
 
 
