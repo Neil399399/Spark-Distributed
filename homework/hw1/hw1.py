@@ -15,12 +15,12 @@ def Normalization(x):
     result = x.map(lambda x: (x-min)/(max-min))
     return result
 
-def Writer(filename,contant1,contant2,contant3,contant4):
+def Writer(filename,contant1):
     file = open(filename,'a')
     writer = csv.writer(file)
     values=[]
     for i in range(0,len(contant1)):
-        values=[contant1[i],contant2[i],contant3[i],contant4[i]]
+        values.append(contant1[i])
         writer.writerows(values)
     file.close()
 
@@ -45,8 +45,8 @@ subData1 = dataset.filter(lambda x: x !=header)
 
 # map for gap.
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
-gap = parserResult
-# gapN = Normalization(gap)
+gap = parserResult.map(lambda x: float(x[2]))
+gapN = Normalization(gap)
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
@@ -63,9 +63,8 @@ parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
 # giN = Normalization(gi)
 
-# print(gapN)
 # write in file.
-# Writer(outputFile,gapN,grpN,volN,giN)
+Writer(outputFile,gapN)
 
 print("/------------ Question 1, 2 ---------------/")
 print("Global active power:",gap.stats())
