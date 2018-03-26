@@ -56,7 +56,7 @@ gi = parserResult4.map(lambda x: float(x[5]))
 giN = Normalization(gi).collect()
 
 # write in file.
-file = open(filename,'a')
+file = open(outputFile,'a')
 writer = csv.writer(file)
 
 for i in range(0,100):
