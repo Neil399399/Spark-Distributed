@@ -46,7 +46,7 @@ subData1 = dataset.filter(lambda x: x !=header)
 # map for gap.
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
 gap = parserResult
-gapN = Normalization(gap)
+# gapN = Normalization(gap)
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
@@ -63,7 +63,7 @@ parserResult4 = subData1.map(Parser).filter(lambda x: x[5]!="?")
 gi = parserResult4.map(lambda x: float(x[5]))
 # giN = Normalization(gi)
 
-print(gapN)
+# print(gapN)
 # write in file.
 # Writer(outputFile,gapN,grpN,volN,giN)
 
