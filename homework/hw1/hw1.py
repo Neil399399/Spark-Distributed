@@ -15,13 +15,10 @@ def Normalization(x):
     result = x.map(lambda x: (x-min)/(max-min))
     return result
 
-def Writer(filename,contant1):
+def Writer(filename,contant):
     file = open(filename,'a')
     writer = csv.writer(file)
-    values=[]
-    for i in range(0,len(contant1)):
-        values=[contant1[i]]
-        writer.writerows(values)
+    writer.writerows(contant)
     file.close()
 
 # Spark configure.
@@ -46,13 +43,12 @@ subData1 = dataset.filter(lambda x: x !=header)
 # map for gap.
 parserResult = subData1.map(Parser).filter(lambda x: x[2]!="?")
 gap = parserResult.map(lambda x: float(x[2]))
-gapN = Normalization(gap)
-res = gapN.collect()
+gapN = Normalization(gap).collect()
 
 # map for grp.
 parserResult2 = subData1.map(Parser).filter(lambda x: x[3]!="?")
 grp = parserResult2.map(lambda x: float(x[3]))
-# grpN = Normalization(grp)
+grpN = Normalization(grp).collect()
 
 # map for voltage.
 parserResult3 = subData1.map(Parser).filter(lambda x: x[4]!="?")
@@ -65,7 +61,14 @@ gi = parserResult4.map(lambda x: float(x[5]))
 # giN = Normalization(gi)
 
 # write in file.
-Writer(outputFile,res)
+for i in range(0,len(gapN)):
+    newValues=[]
+    newValues.append(gapN[i])
+    newValues.append(grpN[i])
+    Writer(outputFile,newValues)
+
+
+    
 
 print("/------------ Question 1, 2 ---------------/")
 print("Global active power:",gap.stats())
