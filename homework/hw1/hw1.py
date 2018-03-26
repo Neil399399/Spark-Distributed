@@ -58,28 +58,17 @@ giN = Normalization(gi).collect()
 # write in file.
 file = open(outputFile,'a')
 writer = csv.writer(file)
-
-for i in range(0,100):
+for i in range(0,len(gapN)):
     newValues=[]
     newValues.append(gapN[i])
     newValues.append(grpN[i])
     newValues.append(volN[i])
     newValues.append(giN[i])
     writer.writerow(newValues)
-
 file.close()
 
-
-print("/------------ Question 1, 2 ---------------/")
+print("/------------ Question 1, 2(count,max,min,mean,standard deviation) ---------------/")
 print("Global active power:",gap.stats())
 print("Global reactive power:",grp.stats())
 print("Voltage:",vol.stats())
 print("Global intensity:",gi.stats())
-
-print("/------------ Question 3 ---------------/")
-# print("Global active power:",gapN.count())
-# print("Global reactive power:",grpN.count())
-# print("Voltage:",volN.count())
-# print("Global intensity:",giN.count())
-
-
