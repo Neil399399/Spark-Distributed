@@ -65,7 +65,7 @@ for i in range(0,100):
     newValues.append(grpN[i])
     newValues.append(volN[i])
     newValues.append(giN[i])
-    writer.writerows(newValues)
+    writer.writerow(newValues)
 
 file.close()
 
