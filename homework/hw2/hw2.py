@@ -36,19 +36,19 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # decode dataset.
-with open ("/root/homework/dataset/hw2/News_Final.csv",'r') as file:
+with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
     dataset = list(data)
 print("dataset long:",len(dataset))
 
-for x in range(0,len(dataset)):
-    temp=[]
-    for y in range(0,len(dataset[x])):
-        dataDecode = dataset[x][y].decode(encoding = 'utf8')
-        dataEncode = dataDecode.encode(encoding = 'utf8')
-        temp.append(dataEncode)
-    newDataset.append(temp)
-# Input data.
+# for x in range(0,len(dataset)):
+#     temp=[]
+#     for y in range(0,len(dataset[x])):
+#         dataDecode = dataset[x][y].decode(encoding = 'utf8')
+#         dataEncode = dataDecode.encode(encoding = 'utf8')
+#         temp.append(dataEncode)
+#     newDataset.append(temp)
+# # Input data.
 dataset1 = sc.parallelize(dataset)
 print("dataset(RDD) long:",dataset1.count())
 
