@@ -19,7 +19,7 @@ def TF(RDD):
     #         dict[titleWords[x]]=dict[titleWords[x]]+1
     #     else:
     #         dict[titleWords[x]]=1
-    return List.encode('utf-8')
+    return List
  
 
 # Spark configure.
@@ -37,7 +37,9 @@ sc = SparkContext(conf=conf)
 # decode dataset.
 with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
-    dataset = list(data)
+    dataDecode = data.decode(encodeing = 'utf8')
+    dataEncode = dataEncode.encode(encodeing = 'utf8')
+    dataset = list(dataEncode)
 print("dataset long:",len(dataset))
 
 # Input data.
@@ -56,6 +58,7 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 a=TF(topicObama)
+str = 
 print(a)
 print(dict.items())
 # topicPalestineList = topicPalestine.collect()
