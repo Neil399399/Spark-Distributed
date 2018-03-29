@@ -45,9 +45,9 @@ subData1 = dataset1.filter(lambda x: x !=header)
 
 # split.
 topicObama = subData1.filter(lambda x: x[4]=='obama')
-topicEconomy = subData1.map(Parser).filter(lambda x: x[4]=='economy')
-topicMicrosoft = subData1.map(Parser).filter(lambda x: x[4]=='microsoft')
-topicPalestine = subData1.map(Parser).filter(lambda x: x[4]=='palestine')
+topicEconomy = subData1.filter(lambda x: x[4]=='economy')
+topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
+topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 # topicPalestineList = topicPalestine.collect()
 print("Topic Obama:",topicObama.count())
