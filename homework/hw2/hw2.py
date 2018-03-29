@@ -76,8 +76,8 @@ for x in range(0,1000):
 
 # write in file.
 
-a = u''.join(dict).encode('utf-8').strip()
-print(a.decode('utf-8').strip())
+a = ''.join(dict).encode('utf-8').strip()
+print(a)
 # file = open(outputFile,'a')
 # writer = csv.writer(file)
 # writer.writerow(dict)
