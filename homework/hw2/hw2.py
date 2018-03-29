@@ -55,6 +55,7 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 a = topicObama.take(3)
+TF(a)
 print(a)
 print(dict.keys())
 # topicPalestineList = topicPalestine.collect()
