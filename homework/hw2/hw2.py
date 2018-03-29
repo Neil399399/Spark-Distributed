@@ -37,7 +37,7 @@ sc = SparkContext(conf=conf)
 # decode dataset.
 with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
-    dataset = list(dataEncode)
+    dataset = list(data)
     dataDecode = dataset.decode(encodeing = 'utf8')
     dataEncode = dataDecode.encode(encodeing = 'utf8')
 print("dataset long:",len(dataEncode))
