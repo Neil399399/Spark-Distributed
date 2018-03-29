@@ -36,12 +36,12 @@ print("dataset long:",len(dataset))
 
 # Input data.
 dataset1 = sc.parallelize(dataset)
-print("dataset long:",dataset1.count())
+print("dataset(RDD) long:",dataset1.count())
 
 # # remove header.
-# header = dataset1.first()
-# subData1 = dataset1.filter(lambda x: x !=header)
-# print("subData1:",subData1.count())
+header = dataset1.first()
+subData1 = dataset1.filter(lambda x: x !=header)
+print("subData1:",subData1.count())
 
 # split.
 # topicObama = subData1.map(Parser).filter(lambda x: x[4]=='"obama"' or x[5]=='"obama"' or x[6]=='"obama"')
