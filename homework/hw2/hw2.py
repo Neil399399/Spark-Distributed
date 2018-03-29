@@ -65,10 +65,17 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 # 
 for x in range(0,1000):
     TF(dataset[x])
-print(dict.items())
+# print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
 # print("Topic Economy:",topicEconomy.count())
 # print("Topic Microsoft:",topicMicrosoft.count())
 # print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
+
+
+# write in file.
+file = open(outputFile,'a')
+writer = csv.writer(file)
+writer.writerow(dict.items())
+file.close()
