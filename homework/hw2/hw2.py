@@ -43,7 +43,7 @@ print("dataset long:",len(dataset))
 
 for x in range(0,len(dataset)):
     temp=[]
-    for y in range(0,dataset[x]):
+    for y in range(0,len(dataset[x])):
         dataDecode = dataset[x][y].decode(encodeing = 'utf8')
         dataEncode = dataDecode.encode(encodeing = 'utf8')
         temp.append(dataEncode)
