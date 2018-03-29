@@ -11,16 +11,17 @@ def Parser(line):
     values = [x for x in line.split(",")]
     return values
 
-def TF(RDD):
-    List =RDD.take(RDD.count())
-    # titleWords = [x for x in line[1].split(" ")]
+def TF(Line):
+    # List =RDD.take(RDD.count())
+    titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
-    # for x in range(0,len(titleWords)):
-    #     if titleWords[x] in dict:
-    #         dict[titleWords[x]]=dict[titleWords[x]]+1
-    #     else:
-    #         dict[titleWords[x]]=1
-    return List
+    for x in range(0,len(titleWords)):
+        if titleWords[x] in dict:
+            dict[titleWords[x]]=dict[titleWords[x]]+1
+        else:
+            dict[titleWords[x]]=1
+    print(dict)
+    return len(dict)
  
 
 # Spark configure.
@@ -63,8 +64,8 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
-a=TF(topicObama)
-print(a)
+a=topicObama.map(TF)
+print(a.count())
 print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
