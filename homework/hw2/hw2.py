@@ -30,7 +30,7 @@ sc = SparkContext(conf=conf)
 
 # decode dataset.
 with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
-    data = csv.reader(file,delimiter = "\n")
+    data = csv.reader(file,delimiter = ",")
     dataset = list(data)
 print("dataset long:",len(dataset))
 
@@ -43,8 +43,8 @@ header = dataset1.first()
 print("header",header)
 subData1 = dataset1.filter(lambda x: x !=header)
 print("subData1:",subData1.count())
-subData2 = subData1.filter(lambda x: x[1])
-print(subData2.count())
+# subData2 = subData1.filter(lambda x: x[1])
+# print(subData2.count())
 
 
 # split.
