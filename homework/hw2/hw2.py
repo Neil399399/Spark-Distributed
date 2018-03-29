@@ -36,7 +36,7 @@ header = dataset.first()
 subData1 = dataset.filter(lambda x: x !=header)
 
 # split.
-topicObama = subData1.map(Parser).filter(lambda x: x[3]=="obama")
+topicObama = subData1.map(Parser).filter(lambda x: x[4]=="obama")
 print("Topic Obama:",topicObama.count())
 
 # title = parserResult.map(lambda x: float(x[2])
