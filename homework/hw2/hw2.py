@@ -44,7 +44,7 @@ print("header",header)
 subData1 = dataset1.filter(lambda x: x !=header)
 
 # split.
-topicObama = subData1.filter(lambda x: x[4]=='"obama"')
+topicObama = subData1.filter(lambda x: x[4]=='obama')
 # topicEconomy = subData1.map(Parser).filter(lambda x: x[4]=='"economy"' or x[5]=='"economy"'  or x[6]=='"economy"')
 # topicMicrosoft = subData1.map(Parser).filter(lambda x: x[4]=='"microsoft"' or x[5]=='"microsoft"' or x[6]=='"microsoft"')
 # topicPalestine = subData1.map(Parser).filter(lambda x: x[4]=='"palestine"' or x[5]=='"palestine"' or x[6]=='"palestine"')
