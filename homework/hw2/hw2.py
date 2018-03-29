@@ -54,7 +54,7 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
-a = topicObama.collect()
+a = topicObama.first()
 TF(a)
 print(dict.keys())
 # topicPalestineList = topicPalestine.collect()
