@@ -50,7 +50,7 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 # topicPalestineList = topicPalestine.collect()
-print("Topic Obama:",topicObama.first()
+print("Topic Obama:",topicObama.first())
 print("Topic Economy:",topicEconomy.count())
 print("Topic Microsoft:",topicMicrosoft.count())
 print("Topic Palestine:",topicPalestine.count())
