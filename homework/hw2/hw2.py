@@ -18,9 +18,7 @@ def TF(line):
             dict[titleWords[x]]=dict[titleWords[x]]+1
         else:
             dict[titleWords[x]]=1
-
-    print(dict.items())
-    return len(dict)
+    return dict
  
 
 # Spark configure.
