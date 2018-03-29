@@ -17,8 +17,8 @@ def TF(line):
     for x in range(0,len(titleWords)):
         if (dict.has_key(titleWords[x])):
             dict[titleWords[x]]=dict[titleWords[x]]+1
-            else:
-                 dict[titleWords[x]]=1
+        else:
+            dict[titleWords[x]]=1
     return len(titleWords),len(headlineWords)
  
 
