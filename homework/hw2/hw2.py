@@ -13,7 +13,8 @@ def Parser(line):
 
 def TF(line):
     # List =RDD.take(RDD.count())
-    titleWords = [x for x in line[1].strip().split(" ").split('\u2014')]
+    titleWords = line[1].strip()
+    print(titleWords)
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
