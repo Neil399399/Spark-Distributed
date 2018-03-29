@@ -19,7 +19,7 @@ def TF(RDD):
     #         dict[titleWords[x]]=dict[titleWords[x]]+1
     #     else:
     #         dict[titleWords[x]]=1
-    return List
+    return List.encode('utf-8')
  
 
 # Spark configure.
