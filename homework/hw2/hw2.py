@@ -4,7 +4,6 @@ findspark.init()
 from pyspark import SparkContext, SparkConf
 import csv
 import os
-import sys
 dict={}
 
 def Parser(line):
@@ -31,8 +30,6 @@ sparkExecutorMemory="3g"
 sparkDriverMemory="3g"
 sparkCoreMax="4"
 outputFile = "result.txt"
-reload(sys)
-sys.setdefaultencoding('etf8')
 
 # Setting Spark conf.
 conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.executor.memory",sparkExecutorMemory).set("spark.driver.memory",sparkDriverMemory)
