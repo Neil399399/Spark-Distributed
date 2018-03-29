@@ -40,7 +40,8 @@ print("dataset(RDD) long:",dataset1.count())
 
 # # remove header.
 header = dataset1.first()
-print("header",header.collect())
+headerPrint = header.collect()
+print("header",headerPrint[1])
 subData1 = dataset1.filter(lambda x: x !=header)
 print("subData1:",subData1.count())
 subData2 = subData1.filter(lambda x: x[1])
