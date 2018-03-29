@@ -42,9 +42,12 @@ with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as
 print("dataset long:",len(dataset))
 
 for x in range(0,len(dataset)):
-    dataDecode = dataset[x].decode(encodeing = 'utf8')
-    dataEncode = dataDecode.encode(encodeing = 'utf8')
-    newDataset.append(dataEncode)
+    temp=[]
+    for y in range(0,dataset[x]):
+        dataDecode = dataset[x][y].decode(encodeing = 'utf8')
+        dataEncode = dataDecode.encode(encodeing = 'utf8')
+        temp.append(dataEncode)
+    newDataset.append(temp)
 # Input data.
 dataset1 = sc.parallelize(dataset)
 print("dataset(RDD) long:",dataset1.count())
