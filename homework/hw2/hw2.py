@@ -15,7 +15,10 @@ def TF(line):
     titleWords = [x for x in line[1].split(" ")]
     headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
-        dict[titleWords[x]]=1
+        if (dict.has_key(titleWords[x])):
+            dict[titleWords[x]]=dict[titleWords[x]]+1
+            else:
+                 dict[titleWords[x]]=1
     return len(titleWords),len(headlineWords)
  
 
