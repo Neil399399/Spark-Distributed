@@ -19,7 +19,6 @@ def TF(line):
             dict[titleWords[x]]=dict[titleWords[x]]+1
         else:
             dict[titleWords[x]]=1
-    return dict
  
 
 # Spark configure.
@@ -55,9 +54,8 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
-a = topicObama.map(TF)
-print(topicObama.count())
-print(a.collect())
+a = topicObama.collect()
+TF(a)
 print(dict.keys())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
