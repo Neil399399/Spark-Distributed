@@ -13,7 +13,7 @@ def Parser(line):
 
 def TF(line):
     # List =RDD.take(RDD.count())
-    titleWords = [x for x in line[1][2].strip().split(" ")]
+    titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
     # for x in range(0,len(titleWords)):
     #     if titleWords[x] in dict:
@@ -64,8 +64,8 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
-a=topicObama.map(TF)
-print(a.collect())
+# 
+print(TF(dataset[2]))
 print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
