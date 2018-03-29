@@ -14,8 +14,8 @@ def Parser(line):
 def TF(line):
     titleWords = [x for x in line[1].split(" ")]
     headlineWords = [x for x in line[2].split(" ")]
-    # for x in range(0,len(titleWords)):
-    #     dict[]
+    for x in range(0,len(titleWords)):
+        dict[titleWords[x]]=1
     return len(titleWords),len(headlineWords)
  
 
@@ -55,9 +55,10 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 test = topicObama.first()
 a = TF(test)
 print(a)
+print(dict)
 # topicPalestineList = topicPalestine.collect()
-print("Topic Obama:",topicObama.first())
-print("Topic Economy:",topicEconomy.count())
-print("Topic Microsoft:",topicMicrosoft.count())
-print("Topic Palestine:",topicPalestine.count())
+# print("Topic Obama:",topicObama.first())
+# print("Topic Economy:",topicEconomy.count())
+# print("Topic Microsoft:",topicMicrosoft.count())
+# print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
