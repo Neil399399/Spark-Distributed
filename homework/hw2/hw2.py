@@ -15,7 +15,7 @@ def Parser(line):
 def TF(line):
     # List =RDD.take(RDD.count())
     titleWords = line[1].strip().split(" ")
-    titleWord2 = re.split(r'[\u2014\u2018]',titleWords)
+    titleWord2 = titleWords.split("-")
     print(titleWord2)
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
