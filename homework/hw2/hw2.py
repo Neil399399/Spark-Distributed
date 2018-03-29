@@ -54,6 +54,7 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 test = topicObama.first()
 a = TF(test)
+print(test)
 print(a)
 print(dict)
 # topicPalestineList = topicPalestine.collect()
