@@ -77,5 +77,5 @@ for x in range(0,1000):
 # write in file.
 file = open(outputFile,'a')
 writer = csv.writer(file)
-writer.writerow(dict.items())
+writer.writerow(dict)
 file.close()
