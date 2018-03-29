@@ -42,7 +42,7 @@ print("dataset(RDD) long:",dataset1.count())
 header = dataset1.first()
 subData1 = dataset1.filter(lambda x: x !=header)
 print("subData1:",subData1.count())
-subData2 = dataset1.range(5)
+subData2 = dataset1.map(lambda x: x[1])
 print(subData2.collect())
 
 
