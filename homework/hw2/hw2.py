@@ -11,7 +11,7 @@ def Parser(line):
     values = [x for x in line.split(",")]
     return values
 
-def TF(Line):
+def TF(line):
     # List =RDD.take(RDD.count())
     titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
