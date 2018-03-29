@@ -6,7 +6,7 @@ import csv
 
 
 def Parser(line):
-    values = [x for x in line.split(";")]
+    values = [x for x in line.split(",")]
     return values
 
 def Normalization(x):
