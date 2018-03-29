@@ -45,5 +45,5 @@ topicPalestine = subData1.map(Parser).filter(lambda x: x[4]=='"palestine"' or x[
 print("Topic Obama:",topicObama.count())
 print("Topic Economy:",topicEconomy.count())
 print("Topic Microsoft:",topicMicrosoft.count())
-print("Topic Palestine:",topicPalestine.count())
+print("Topic Palestine:",topicPalestine.collect())
 # title = parserResult.map(lambda x: float(x[2])
