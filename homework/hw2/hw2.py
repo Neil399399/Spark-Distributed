@@ -34,6 +34,7 @@ print("dataset long:",dataset.count())
 # remove header.
 header = dataset.first()
 subData1 = dataset.filter(lambda x: x !=header)
+print("subData1:",subData1.count())
 
 # split.
 topicObama = subData1.map(Parser).filter(lambda x: x[4]=="obama")
