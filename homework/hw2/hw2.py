@@ -35,7 +35,7 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # decode dataset.
-with open ("/root/homework/dataset/hw2/News_Final.csv",'r') as file:
+with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
     dataset = list(data)
 print("dataset long:",len(dataset))
@@ -63,7 +63,7 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 # 
-for x in range(0,1000):
+for x in range(0,100):
     TF(dataset[x])
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
@@ -73,12 +73,4 @@ for x in range(0,1000):
 # print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
 
-
-# write in file.
-
-
 print(dict)
-# file = open(outputFile,'a')
-# writer = csv.writer(file)
-# writer.writerow(dict)
-# file.close()
