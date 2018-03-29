@@ -5,16 +5,19 @@ from pyspark import SparkContext, SparkConf
 import csv
 import os
 
+dict={}
 
 def Parser(line):
     values = [x for x in line.split(",")]
     return values
 
-def Normalization(x):
-    max = x.max()
-    min = x.min()
-    result = x.map(lambda x: (x-min)/(max-min))
-    return result
+def TF(line):
+    titleWords = [x for x in line[1].split(" ")]
+    headlineWords = [x for x in line[2].split(" ")]
+    # for x in range(0,len(titleWords)):
+    #     dict[]
+    return len(titleWords),len(headlineWords)
+ 
 
 # Spark configure.
 sparkMaster="spark://172.17.0.5:7077"
@@ -49,6 +52,9 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
+test = topicObama.first()
+a = TF(test)
+print(a)
 # topicPalestineList = topicPalestine.collect()
 print("Topic Obama:",topicObama.first())
 print("Topic Economy:",topicEconomy.count())
