@@ -35,7 +35,7 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # decode dataset.
-with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
+with open ("/root/homework/dataset/hw2/News_Final.csv",'rb',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
     dataset = list(data)
 print("dataset long:",len(dataset))
@@ -76,8 +76,8 @@ for x in range(0,1000):
 
 # write in file.
 
-a = ''.join(dict).encode('utf8').strip()
-print(a)
+
+print(dict)
 # file = open(outputFile,'a')
 # writer = csv.writer(file)
 # writer.writerow(dict)
