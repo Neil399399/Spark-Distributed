@@ -4,6 +4,7 @@ findspark.init()
 from pyspark import SparkContext, SparkConf
 import csv
 import os
+import re
 dict={}
 newDataset=[]
 
@@ -13,8 +14,9 @@ def Parser(line):
 
 def TF(line):
     # List =RDD.take(RDD.count())
-    titleWords = line[1].strip()
-    print(titleWords)
+    titleWords = line[1].strip().split(" ")
+    titleWord2 = re.split('u\2014'|'u\2018',titleWords)
+    print(titleWord2)
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
