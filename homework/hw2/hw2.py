@@ -63,7 +63,7 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 # 
-for x in range(0,10):
+for x in range(0,1000):
     TF(dataset[x])
 print(dict.items())
 # topicPalestineList = topicPalestine.collect()
