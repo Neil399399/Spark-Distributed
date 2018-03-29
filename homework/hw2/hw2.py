@@ -5,6 +5,7 @@ from pyspark import SparkContext, SparkConf
 import csv
 import os
 dict={}
+newDataset=[]
 
 def Parser(line):
     values = [x for x in line.split(",")]
@@ -38,10 +39,12 @@ sc = SparkContext(conf=conf)
 with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
     dataset = list(data)
-    dataDecode = dataset.decode(encodeing = 'utf8')
-    dataEncode = dataDecode.encode(encodeing = 'utf8')
-print("dataset long:",len(dataEncode))
+print("dataset long:",len(dataset))
 
+for x in range(0,len(dataset)):
+    dataDecode = dataset[x].decode(encodeing = 'utf8')
+    dataEncode = dataDecode.encode(encodeing = 'utf8')
+    newDataset.append(dataEncode)
 # Input data.
 dataset1 = sc.parallelize(dataset)
 print("dataset(RDD) long:",dataset1.count())
