@@ -20,7 +20,6 @@ def TF(line):
             dict[titleWords[x]]=dict[titleWords[x]]+1
         else:
             dict[titleWords[x]]=1
-        print(dict)
  
 
 # Spark configure.
