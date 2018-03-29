@@ -38,6 +38,12 @@ print("subData1:",subData1.count())
 
 # split.
 topicObama = subData1.map(Parser).filter(lambda x: x[4]=='"obama"')
-print("Topic Obama:",topicObama.count())
+topicEconomy = subData1.map(Parser).filter(lambda x: x[4]=='"economy"')
+topicMicrosoft = subData1.map(Parser).filter(lambda x: x[4]=='"microsoft"')
+topicPalestine = subData1.map(Parser).filter(lambda x: x[4]=='"palestine"')
 
+print("Topic Obama:",topicObama.count())
+print("Topic Economy:",topicEconomy.count())
+print("Topic Microsoft:",topicMicrosoft.count())
+print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
