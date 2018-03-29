@@ -31,3 +31,12 @@ sc = SparkContext(conf=conf)
 dataset = sc.textFile("file:/root/homework/dataset/hw2/News_Final.csv")
 print("dataset long:",dataset.count())
 
+# remove header.
+header = dataset.first()
+subData1 = dataset.filter(lambda x: x !=header)
+
+# split.
+topicObama = subData1.map(Parser).filter(lambda x: x[3]=="obama")
+print("Topic Obama:",topicObama.count())
+
+# title = parserResult.map(lambda x: float(x[2])
