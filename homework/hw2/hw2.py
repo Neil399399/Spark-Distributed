@@ -4,25 +4,23 @@ findspark.init()
 from pyspark import SparkContext, SparkConf
 import csv
 import os
-dict={}
 newDataset=[]
-counter =0
 
 def Parser(line):
     values = [x for x in line.split(",")]
     return values
 
-def TF(line):
+def TF(line)
+    dict={}
+
     titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
-            counter=counter+1
         else:
             dict[titleWords[x]]=1
-            counter=counter+1
-    return counter
+    return len(dict)
 
     
 
