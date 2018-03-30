@@ -18,10 +18,10 @@ def TF(line):
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
-            counter++
+            counter=counter+1
         else:
             dict[titleWords[x]]=1
-            counter++
+            counter=counter+1
     return counter
 
     
