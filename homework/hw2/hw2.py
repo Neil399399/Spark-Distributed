@@ -10,9 +10,8 @@ def Parser(line):
     values = [x for x in line.split(",")]
     return values
 
-def TF(line)
+def TF(line):
     dict={}
-
     titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
