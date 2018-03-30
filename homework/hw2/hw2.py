@@ -6,6 +6,7 @@ import csv
 import os
 dict={}
 newDataset=[]
+counter =0
 
 def Parser(line):
     values = [x for x in line.split(",")]
@@ -17,10 +18,13 @@ def TF(line):
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
+            counter+1
         else:
             dict[titleWords[x]]=1
-        print(len(dict))
-        return len(dict)
+            counter+1
+    return counter
+
+    
 
  
 
