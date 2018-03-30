@@ -8,7 +8,7 @@ The major focus in this course will be utilizing parallel progamming in distribu
 Hadoop/Spark distributed mode setup & simple calculation in MapReduce.
 ### HW2
 Statistics of various data types in MapReduce (co-occurrence).
-## Establish Spark Cluster
+## Establish Spark Cluster(Standalone Mode)
 If you want to have one spark cluster in local, please follow the step to setting your enviroment.
 
 ### Download and Install
@@ -22,11 +22,11 @@ docker build -t spark/hadoop .
 After build the docker image, please run the command to create the docker containers(one master and one slave or more).
 ```zsh
 #for master
-docker run -it --name spark-master -p 8088:8088 -p 50070:50070 -p 50010:50010 -p 4040:4040 -p 8042:8042 -p 8888:8888 spark/hadoop:v10 bash
+docker run -it --name spark-master -p 8088:8088 -p 50070:50070 -p 50010:50010 -p 4040:4040 -p 8042:8042 -p 8888:8888 spark/hadoop bash
 ```
 ```zsh
 #for slaves
-docker run -it --name spark-slave1 --link spark-master spark/hadoop:v10 bash
+docker run -it --name spark-slave1 --link spark-master spark/hadoop bash
 ```
 #### Step3
 After finished create container, we should set the hosts to each container. Attach the container and start setting.     
