@@ -12,7 +12,6 @@ def Parser(line):
     return values
 
 def TF(line):
-    # List =RDD.take(RDD.count())
     titleWords = [x for x in line[1].strip().split(" ")]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
@@ -20,6 +19,7 @@ def TF(line):
             dict[titleWords[x]]=dict[titleWords[x]]+1
         else:
             dict[titleWords[x]]=1
+    return len(dict)
  
 
 # Spark configure.
@@ -40,13 +40,6 @@ with open ("/root/homework/dataset/hw2/News_Final.csv",'r',encoding = 'utf8') as
     dataset = list(data)
 print("dataset long:",len(dataset))
 
-# for x in range(0,len(dataset)):
-#     temp=[]
-#     for y in range(0,len(dataset[x])):
-#         dataDecode = dataset[x][y].decode(encoding = 'utf8')
-#         dataEncode = dataDecode.encode(encoding = 'utf8')
-#         temp.append(dataEncode)
-#     newDataset.append(temp)
 # # Input data.
 dataset1 = sc.parallelize(dataset)
 print("dataset(RDD) long:",dataset1.count())
@@ -62,9 +55,6 @@ topicEconomy = subData1.filter(lambda x: x[4]=='economy')
 topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
-# 
-for x in range(0,100):
-    TF(dataset[x])
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
