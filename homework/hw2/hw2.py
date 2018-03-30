@@ -61,7 +61,8 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
 test = topicObama.map(TF)
-print(test.take(2))
+test2 = test.take(2)
+print(test2[1])
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
