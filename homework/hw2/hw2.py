@@ -66,4 +66,4 @@ print(test.collect())
 # print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
 
-print(dict)
+print(len(dict))
