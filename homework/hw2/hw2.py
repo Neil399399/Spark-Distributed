@@ -6,6 +6,7 @@ import csv
 import os
 newDataset=[]
 
+
 def Parser(line):
     values = [x for x in line.split(",")]
     return values
@@ -19,7 +20,7 @@ def TF(line):
             dict[titleWords[x]]=dict[titleWords[x]]+1
         else:
             dict[titleWords[x]]=1
-    return len(dict)
+    return dict
 
     
 
@@ -60,7 +61,7 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
 test = topicObama.map(TF)
-print(test.collect())
+print(test.take(2))
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
@@ -69,4 +70,3 @@ print(test.collect())
 # print("Topic Palestine:",topicPalestine.count())
 # title = parserResult.map(lambda x: float(x[2])
 
-print(len(dict))
