@@ -73,7 +73,7 @@ test = topicObama.map(TF)
 test2 = test.take(2)
 print(test2[0])
 print(test2[1])
-for x in len(test2):
+for x in test2:
     Dict(test2[x])
 print(dict)
 
