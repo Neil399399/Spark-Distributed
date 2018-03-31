@@ -81,9 +81,9 @@ for x in range(0,len(test2)):
 # writer = csv.writer(file)
 # writer.writerow(dict)
 # file.close()
-newDict = sorted(dict.items(), key=lambda t: t[1], reverse=True)
+newDict = Counter(dict)
 
-print(len(newDict))
+print(newDict.most_common(3))
 
 
 
