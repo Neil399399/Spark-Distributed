@@ -81,7 +81,7 @@ for x in range(0,len(test2)):
 # writer = csv.writer(file)
 # writer.writerow(dict)
 # file.close()
-print(dict)
+print(len(dict))
 
 
 
