@@ -15,7 +15,7 @@ def Parser(line):
 
 def TF(line):
     dict={}
-    titleWords = [x for x in re.strip().split(' |, |\u2019|\u2018|\u2014|\u2013|\u2026|\u201d|\u201c|:|(|)|\xe1|\xf1',line[1])]
+    titleWords = [x for x in re.split(' |, |\u2019|\u2018|\u2014|\u2013|\u2026|\u201d|\u201c|:|(|)|\xe1|\xf1',line[1].strip())]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
