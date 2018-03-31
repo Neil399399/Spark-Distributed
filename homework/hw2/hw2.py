@@ -69,8 +69,9 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
+a=topicObama.count()
 test = topicObama.map(TF)
-test2 = test.take(topicObama.count())
+test2 = test.take(a)
 for x in range(0,len(test2)):
     Dict(test2[x])
 
