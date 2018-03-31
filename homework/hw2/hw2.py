@@ -4,11 +4,12 @@ findspark.init()
 from pyspark import SparkContext, SparkConf
 import csv
 import os
+import re
 newDataset=[]
 
 
 def Parser(line):
-    values = [x for x in line.split(",")]
+    values = [x for x in re.split('  |, ',line)]
     return values
 
 def TF(line):
