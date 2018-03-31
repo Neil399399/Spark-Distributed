@@ -76,12 +76,12 @@ for x in range(0,len(test2)):
     Dict(test2[x])
 
 
-# write in file.
-file = open(outputFile,'a')
-writer = csv.writer(file)
-writer.writerow(dict)
-file.close()
-
+# # write in file.
+# file = open(outputFile,'a')
+# writer = csv.writer(file)
+# writer.writerow(dict)
+# file.close()
+print(dict)
 
 
 
