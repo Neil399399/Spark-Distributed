@@ -73,7 +73,13 @@ test = topicObama.map(TF)
 test2 = test.take(topicObama.count())
 for x in range(0,len(test2)):
     Dict(test2[x])
-print(dict)
+
+
+# write in file.
+file = open(outputFile,'a')
+writer = csv.writer(file)
+writer.writerow(dict)
+file.close()
 
 
 
