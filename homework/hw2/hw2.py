@@ -84,7 +84,7 @@ for x in range(0,len(test2)):
 # file.close()
 newDict = Counter(dict)
 
-print(newDict.most_common(3))
+print(newDict.most_common(10))
 
 
 
