@@ -6,6 +6,7 @@ import csv
 import os
 import re
 newDataset=[]
+dict={}
 
 
 def Parser(line):
@@ -23,7 +24,14 @@ def TF(line):
             dict[titleWords[x]]=1
     return dict
 
-    
+  def Dict(dictionary):
+    for x in range(0,len(dictionary)):
+        if dictionary[x] in dict:
+            dict[titleWords[x]]=dict[titleWords[x]]+1
+        else:
+            dict[titleWords[x]]=1
+    return dict
+  
 
  
 
@@ -65,7 +73,7 @@ test = topicObama.map(TF)
 test2 = test.take(2)
 print(test2[0])
 test2[0].update(test2[1])
-print(test2[0])
+print(test2[0][1])
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
 # print("Topic Obama:",topicObama.first())
