@@ -74,7 +74,7 @@ test2 = test.take(2)
 print(test2[0])
 test2[0].update(test2[1])
 print(test2[0])
-print(test2[0].keys())
+print(test2[0].keys(1))
 
 # print(dict.items())
 # topicPalestineList = topicPalestine.collect()
