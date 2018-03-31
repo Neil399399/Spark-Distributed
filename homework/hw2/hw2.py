@@ -74,7 +74,7 @@ test2 = test.take(2)
 print(test2[0])
 test2[0].update(test2[1])
 print(test2[0])
- for (k, v) in test2[0].items():
+for (k, v) in test2[0].items():
     print(k)
     print(v)
 
