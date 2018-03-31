@@ -16,7 +16,7 @@ def Parser(line):
 
 def TF(line):
     dict={}
-    titleWords = [x for x in re.split(' |, |\u2019|\u2018|\u2014|\u2013|\u2026|\u201d|\u201c|:|(|)|\xe1|\xf1',line[1].strip())]
+    titleWords = [x for x in re.split(' |, |\u2019|\u2018|\u2014|\u2013|\u2026|\u201d|\u201c|:|(|)|\xe1|\xf1|...',line[1].strip())]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
@@ -70,9 +70,8 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
-a=topicObama.count()
 test = topicObama.map(TF)
-test2 = test.take(a)
+test2 = test.take(topicObama.count())
 for x in range(0,len(test2)):
     Dict(test2[x])
 
