@@ -24,7 +24,7 @@ def TF(line):
             dict[titleWords[x]]=1
     return dict
 
-  def Dict(dictionary):
+def Dict(dictionary):
     for x in range(0,len(dictionary)):
         if dictionary[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
