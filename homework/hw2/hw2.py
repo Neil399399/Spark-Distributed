@@ -2,10 +2,10 @@
 import findspark
 findspark.init()
 from pyspark import SparkContext, SparkConf
+from collections import Counter
 import csv
 import os
 import re
-import collections
 newDataset=[]
 dict={}
 
