@@ -9,12 +9,12 @@ newDataset=[]
 
 
 def Parser(line):
-    values = [x for x in re.split('  |, ',line)]
+    values = [x for x in line.split(",")]
     return values
 
 def TF(line):
     dict={}
-    titleWords = [x for x in line[1].split(" ")]
+    titleWords = [x for x in re.split('  |, ',line[1])]
     # headlineWords = [x for x in line[2].split(" ")]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
