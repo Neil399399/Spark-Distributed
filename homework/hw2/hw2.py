@@ -70,10 +70,9 @@ topicMicrosoft = subData1.filter(lambda x: x[4]=='microsoft')
 topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
-test = topicObama.map(TF)
-test2 = test.take(topicObama.count())
-for x in range(0,len(test2)):
-    Dict(test2[x])
+topicObamaDicts = topicObama.map(TF).take(topicObama.count())
+for x in range(0,len(topicObamaDicts)):
+    Dict(topicObamaDicts[x])
 
 
 # # write in file.
