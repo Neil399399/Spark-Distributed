@@ -25,11 +25,11 @@ def TF(line):
     return dict
 
 def Dict(dictionary):
-    for x in range(0,len(dictionary)):
-        if dictionary[x] in dict:
-            dict[titleWords[x]]=dict[titleWords[x]]+1
+    for (key, value) in dictionary.items():
+        if key in dict:
+            dict[key]=dict[key]+1
         else:
-            dict[titleWords[x]]=1
+            dict[key]=1
     return dict
   
 
@@ -72,11 +72,11 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 test = topicObama.map(TF)
 test2 = test.take(2)
 print(test2[0])
-test2[0].update(test2[1])
-print(test2[0])
-for (k, v) in test2[0].items():
-    print(k)
-    print(v)
+print(test2[1])
+for x in len(test2):
+    Dict(test2[x])
+print(dict)
+
 
 
 
