@@ -81,7 +81,9 @@ for x in range(0,len(test2)):
 # writer = csv.writer(file)
 # writer.writerow(dict)
 # file.close()
-print(len(dict))
+newDict = sorted(dict.items(), key=lambda t: t[1], reverse=True)
+
+print(len(newDict))
 
 
 
