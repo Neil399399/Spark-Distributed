@@ -70,7 +70,7 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 #test
 test = topicObama.map(TF)
-test2 = test.take(100)
+test2 = test.take(topicObama.count())
 for x in range(0,len(test2)):
     Dict(test2[x])
 print(dict)
