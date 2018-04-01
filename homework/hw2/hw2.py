@@ -83,39 +83,62 @@ topicEconomyDicts_title = topicEconomy.map(TFtitle).take(topicEconomy.count())
 topicMicrosoftDicts_title = topicMicrosoft.map(TFtitle).take(topicMicrosoft.count())
 topicPalestineDicts_title = topicPalestine.map(TFtitle).take(topicPalestine.count())
 
+# 4 topic dictionary (headline). 
+topicObamaDicts_headline = topicObama.map(TFheadline).take(topicObama.count())
+topicEconomyDicts_headline = topicEconomy.map(TFheadline).take(topicEconomy.count())
+topicMicrosoftDicts_headline = topicMicrosoft.map(TFheadline).take(topicMicrosoft.count())
+topicPalestineDicts_headline = topicPalestine.map(TFheadline).take(topicPalestine.count())
+
 # define dictionarys.
-topicObamaDict = {}
-topicEconomyDict = {}
-topicMicrosoftDict = {}
-topicPalestineDict = {}
+## for title.
+topicObamaDict_title = {}
+topicEconomyDict_title = {}
+topicMicrosoftDict_title = {}
+topicPalestineDict_title = {}
+
+## for headline.
+topicObamaDict_headline = {}
+topicEconomyDict_headline = {}
+topicMicrosoftDict_headline = {}
+topicPalestineDict_headline = {}
 
 # merge all dict.
 for x in range(0,len(topicObamaDicts_title)):
-    Dict(topicObamaDicts_title[x],topicObamaDict)
+    Dict(topicObamaDicts_title[x],topicObamaDict_title)
 
 for x in range(0,len(topicEconomyDicts_title)):
-    Dict(topicEconomyDicts_title[x],topicEconomyDict)
+    Dict(topicEconomyDicts_title[x],topicEconomyDict_title)
 
 for x in range(0,len(topicMicrosoftDicts_title)):
-    Dict(topicMicrosoftDicts_title[x],topicMicrosoftDict)
+    Dict(topicMicrosoftDicts_title[x],topicMicrosoftDict_title)
 
 for x in range(0,len(topicPalestineDicts_title)):
-    Dict(topicPalestineDicts_title[x],topicPalestineDict)
+    Dict(topicPalestineDicts_title[x],topicPalestineDict_title)
+
+for x in range(0,len(topicObamaDicts_headline)):
+    Dict(topicObamaDicts_headline[x],topicObamaDict_headline)
+
+for x in range(0,len(topicEconomyDicts_headline)):
+    Dict(topicEconomyDicts_headline[x],topicEconomyDict_headline)
+
+for x in range(0,len(topicMicrosoftDict_title)):
+    Dict(topicMicrosoftDict_title[x],topicMicrosoftDict_headline)
+
+for x in range(0,len(topicPalestineDict_title)):
+    Dict(topicPalestineDict_title[x],topicPalestineDict_headline)
 
 # find top 3 words.
-print(Counter(topicObamaDict).most_common(3))
-print(Counter(topicEconomyDict).most_common(3))
-print(Counter(topicMicrosoftDict).most_common(3))
-print(Counter(topicPalestineDict).most_common(3))
+print("Topic obama top3 most frequent words in title :",Counter(topicObamaDict_title).most_common(3))
+print("Topic economy most frequent words in title :",Counter(topicEconomyDict_title).most_common(3))
+print("Topic microsoft most frequent words in title :",Counter(topicMicrosoftDict_title).most_common(3))
+print("Topic palestine most frequent words in title :",Counter(topicPalestineDict_title).most_common(3))
+
+print("Topic obama top3 most frequent words in headline :",Counter(topicObamaDict_headline).most_common(3))
+print("Topic economy most frequent words in headline :",Counter(topicEconomyDict_headline).most_common(3))
+print("Topic microsoft most frequent words in headline :",Counter(topicMicrosoftDict_headline).most_common(3))
+print("Topic palestine most frequent words in headline :",Counter(topicPalestineDict_headline).most_common(3))
 
 
 
 
-# print(dict.items())
-# topicPalestineList = topicPalestine.collect()
-# print("Topic Obama:",topicObama.first())
-# print("Topic Economy:",topicEconomy.count())
-# print("Topic Microsoft:",topicMicrosoft.count())
-# print("Topic Palestine:",topicPalestine.count())
-# title = parserResult.map(lambda x: float(x[2])
 
