@@ -124,8 +124,8 @@ for x in range(0,len(topicEconomyDicts_headline)):
 for x in range(0,len(topicMicrosoftDicts_headline)):
     Dict(topicMicrosoftDicts_headline[x],topicMicrosoftDict_headline)
 
-for x in range(0,len(topicPalestineDict_title)):
-    Dict(topicPalestineDict_title[x],topicPalestineDict_headline)
+for x in range(0,len(topicPalestineDicts_headline)):
+    Dict(topicPalestineDicts_headline[x],topicPalestineDict_headline)
 
 # find top 3 words.
 print("Topic obama top3 most frequent words in title :",Counter(topicObamaDict_title).most_common(3))
