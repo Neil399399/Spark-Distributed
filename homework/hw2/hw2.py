@@ -96,15 +96,16 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 # topicPalestineDicts_headline = topicPalestine.map(TFheadline).take(topicPalestine.count())
 
 # # per day dictionary (publish date). 
-dates_dict = subData1.map(TFpublishDate).take(subData1.count())
+dates_dict = subData1.map(TFpublishDate).take(10)
+print(dates_dict)
 dict = {}
-for x in range(0,len(dates_dict)):
-    for (key, value) in dates_dict[x]:
-        if key in dict:
-            dict[key].append(value)
-        else:
-            dict[key]=[]
-            dict[key].append(value)
+# for x in range(0,len(dates_dict)):
+#     for (key, value) in dates_dict[x]:
+#         if key in dict:
+#             dict[key].append(value)
+#         else:
+#             dict[key]=[]
+#             dict[key].append(value)
 
 print(dict)
 
