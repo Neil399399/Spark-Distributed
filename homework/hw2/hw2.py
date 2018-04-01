@@ -36,11 +36,7 @@ def TFheadline(line):
 def TFpublishDate(line):
     dict={}
     dates = [x for x in re.split(' ',line[5].strip())]
-    if dates[0] in dict:
-        dict[dates[0]].append(line[0])
-    else:
-        dict[dates[0]]=[]
-        dict[dates[0]].append(line[0])
+    dict[dates[0]]=line[0]
     return dict
 
 def Dict(dictionary,newDictionary):
@@ -100,9 +96,17 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 # topicPalestineDicts_headline = topicPalestine.map(TFheadline).take(topicPalestine.count())
 
 # # per day dictionary (publish date). 
-dates_dict = subData1.map(TFpublishDate)
+dates_dict = subData1.map(TFpublishDate).take(subData1.count())
 dict = {}
-print(dates_dict.collect())
+for x in range(0,len(dates_dict)):
+    for (key, value) in dates_dict.items():
+        if key in dict:
+            dict[key].append(value)
+        else:
+            dict[key]=[]
+            dict[key].append(value)
+
+print(dict)
 
 # # define dictionarys.
 # ## for title.
