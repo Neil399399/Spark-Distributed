@@ -109,7 +109,7 @@ for x in range(0,len(dates_dict)):
 for (key, value) in dict.items():
 
     print(key)
-    print(value)
+    print(value[0])
 
 
 # # define dictionarys.
