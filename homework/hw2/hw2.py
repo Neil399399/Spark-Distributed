@@ -100,7 +100,7 @@ dates_dict = subData1.map(TFpublishDate).take(10)
 print(dates_dict[1])
 dict = {}
 for x in range(0,len(dates_dict)):
-    for (key, value) in dates_dict[x]:
+    for (key, value) in dates_dict[x].items():
         if key in dict:
             dict[key].append(value)
         else:
