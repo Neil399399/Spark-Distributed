@@ -106,8 +106,11 @@ for x in range(0,len(dates_dict)):
             dict[key]=[]
             dict[key].append(value)
 
-keys = dict.keys()
-print(keys)
+for (key, value) in dict.items():
+
+    print(key)
+    print(value)
+
 
 # # define dictionarys.
 # ## for title.
