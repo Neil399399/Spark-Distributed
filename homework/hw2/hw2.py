@@ -99,7 +99,7 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 dates_dict = subData1.map(TFpublishDate).take(subData1.count())
 dict = {}
 for x in range(0,len(dates_dict)):
-    for (key, value) in dates_dict.items():
+    for (key, value) in dates_dict[x]:
         if key in dict:
             dict[key].append(value)
         else:
