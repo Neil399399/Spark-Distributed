@@ -105,7 +105,7 @@ for x in range(0,len(dates_dict)):
         else:
             dict[key]=[]
             dict[key].append(value)
-print(dict)
+print(dict[0])
 
 # # define dictionarys.
 # ## for title.
