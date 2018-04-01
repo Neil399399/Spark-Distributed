@@ -101,6 +101,10 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 # # per day dictionary (publish date). 
 dates_dict = subData1.map(TFpublishDate)
 print(dates_dict.count())
+dict = {}
+for x in range(0,len(dates_dict)):
+    Dict(dates_dict[x],dict)
+print(dict)
 
 # # define dictionarys.
 # ## for title.
