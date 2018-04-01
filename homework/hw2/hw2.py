@@ -121,8 +121,8 @@ for x in range(0,len(topicObamaDicts_headline)):
 for x in range(0,len(topicEconomyDicts_headline)):
     Dict(topicEconomyDicts_headline[x],topicEconomyDict_headline)
 
-for x in range(0,len(topicMicrosoftDict_title)):
-    Dict(topicMicrosoftDict_title[x],topicMicrosoftDict_headline)
+for x in range(0,len(topicMicrosoftDicts_headline)):
+    Dict(topicMicrosoftDicts_headline[x],topicMicrosoftDict_headline)
 
 for x in range(0,len(topicPalestineDict_title)):
     Dict(topicPalestineDict_title[x],topicPalestineDict_headline)
