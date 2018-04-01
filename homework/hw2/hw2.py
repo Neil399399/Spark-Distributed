@@ -39,7 +39,8 @@ def TFpublishDate(line):
     if dates[0] in dict:
         dict[dates[0]].append(line[0])
     else:
-        dict[dates[0]]=[line[5]]
+        dict[dates[0]]=[]
+        dict[dates[0]].append(line[0])
     return dict
 
 def Dict(dictionary,newDictionary):
