@@ -60,17 +60,6 @@ RUN sed -i '/^export SPARK_MASTER_IP/ s:.*:export SPARK_MASTER_IP=master\nexport
 ENV PATH $PATH:$SPARK_HOME/bin
 ENV PATH $PATH:$SPARK_HOME/sbin
 
-# Anaconda2-2.5.0
-# RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.0.1-Linux-x86_64.sh && bash Anaconda3-5.0.0.1-Linux-x86_64.sh -b
-# ENV PATH $PATH:~/anaconda3/bin
-# ENV ANACONDA_PATH ~/anaconda3
-# ENV PYSPARK_DRIVER_PYTHON $ANACONDA_PATH/bin/ipython
-# ENV PYSPARK_PYTHON $ANACONDA_PATH/bin/python
-
-# Ipynotebook
-RUN mkdir -p ~/pythonwork/ipynotebook
-RUN echo "root:123456" | chpasswd
-
 
 # spark ports
 EXPOSE 4040 7077 8080 8081

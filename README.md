@@ -7,7 +7,8 @@ The major focus in this course will be utilizing parallel progamming in distribu
 ### HW1
 Hadoop/Spark distributed mode setup & simple calculation in MapReduce.
 ### HW2
-Statistics of various data types in MapReduce (co-occurrence).
+Statistics of various data types in MapReduce (co-occurrence).          
+Dataset link : https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms
 ## Establish Spark Cluster(Standalone Mode)
 If you want to have one spark cluster in local, please follow the step to setting your enviroment.
 
