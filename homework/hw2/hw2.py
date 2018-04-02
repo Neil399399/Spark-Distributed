@@ -107,10 +107,14 @@ for x in range(0,len(dates_dict)):
             dict[key].append(value)
 
 for (key, value) in dict.items():
+    tempdict = {}
     for ID in value:
         temp = subData1.filter(lambda x: x[0]==ID)
         topicObamaDicts_title = temp.map(TFtitle).collect()
-        print(topicObamaDicts_title[0])
+        Dict(topicObamaDicts_title[0],tempdict)
+    dict[key]=tempdict
+
+print(dict)
 
 
 
