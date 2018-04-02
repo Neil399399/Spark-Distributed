@@ -108,7 +108,7 @@ for x in range(0,len(dates_dict)):
 
 for (key, value) in dict.items():
     for ID in value:
-        print(key,value)
+        print(key,ID)
         temp = subData1.filter(lambda x: x[0]==ID)
         topicObamaDicts_title = temp.map(TFtitle).collect()
 
