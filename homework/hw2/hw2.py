@@ -112,6 +112,7 @@ for (key, value) in dict.items():
         temp = subData1.filter(lambda x: x[0]==ID)
         topicObamaDicts_title = temp.map(TFtitle).collect()
         Dict(topicObamaDicts_title[0],tempdict)
+        temp.unpersist()
     dict[key]=tempdict
 
 print(dict)
