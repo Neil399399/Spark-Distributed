@@ -59,6 +59,7 @@ RUN cp /usr/local/spark/conf/spark-env.sh.template /usr/local/spark/conf/spark-e
 RUN sed -i '/^export SPARK_MASTER_IP/ s:.*:export SPARK_MASTER_IP=master\nexport SPARK_WORKER_CORES=1\nexport SPARK_WORKER_MEMORY=1g\nexport SPARK_EXECUTOR_INSTANCES=4:' $SPARK_HOME/conf/spark-env.sh
 ENV PATH $PATH:$SPARK_HOME/bin
 ENV PATH $PATH:$SPARK_HOME/sbin
+RUN echo "root:123456" | chpasswd
 
 
 # spark ports
