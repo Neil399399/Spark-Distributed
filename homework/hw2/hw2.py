@@ -112,9 +112,12 @@ for (key, value) in dict.items():
     for ID in value:
         topicObamaDicts_title = subData1.filter(lambda x: x[0]==ID).map(TFtitle).collect()
         Dict(topicObamaDicts_title[0],tempdict)
-    
     date[key] = tempdict
+
 print(date)
+print("Per day top3 most frequent words in title :")
+for (key,value) in date:
+    print(key,Counter(value).most_common(3))
 
 
 
