@@ -97,7 +97,8 @@ topicPalestine = subData1.filter(lambda x: x[4]=='palestine')
 
 # # per day dictionary (publish date). 
 dates_dict = subData1.map(TFpublishDate).take(subData1.count())
-dict = {}
+dict = {}  # {date: ID}
+date = {}
 for x in range(0,len(dates_dict)):
     for (key, value) in dates_dict[x].items():
         if key in dict:
@@ -109,13 +110,11 @@ for x in range(0,len(dates_dict)):
 for (key, value) in dict.items():
     tempdict = {}
     for ID in value:
-        temp = subData1.filter(lambda x: x[0]==ID)
-        topicObamaDicts_title = temp.map(TFtitle).collect()
+        topicObamaDicts_title = subData1.filter(lambda x: x[0]==ID).map(TFtitle).collect()
         Dict(topicObamaDicts_title[0],tempdict)
-        temp.unpersist()
-    dict[key]=tempdict
-
-print(dict)
+    
+    date[key] = tempdict
+print(date)
 
 
 
