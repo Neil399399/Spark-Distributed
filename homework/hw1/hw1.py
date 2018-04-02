@@ -16,7 +16,7 @@ def Normalization(x):
     return result
 
 # Spark configure.
-sparkMaster="spark://172.17.0.5:7077"
+sparkMaster="spark://172.17.0.2:7077"
 sparkAppName="hw1"
 sparkExecutorMemory="3g"
 sparkDriverMemory="3g"
