@@ -35,7 +35,7 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # input data.
-with open ("/root/homework/dataset/hw2/Fackbook_Economy.csv",'r',encoding = 'utf8') as file:
+with open ("/root/homework/dataset/hw2/Facebook_Economy.csv",'r',encoding = 'utf8') as file:
     data = csv.reader(file,delimiter = ",")
     fackbook_Economy = list(data)
 
