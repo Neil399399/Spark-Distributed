@@ -9,7 +9,7 @@ import re
 
 
 def per_hour_popularity(line):
-    values = [x for x in line.strip().split(",")]
+    values = [x for x in line.split(",")]
     average = []
     for x in range(0,len(values),+3):
         tempAverage = values[x+1]+values[x+2]+values[x+3]
