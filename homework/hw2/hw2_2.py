@@ -24,7 +24,7 @@ def per_day_popularity(line):
 
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
-sparkAppName="hw1"
+sparkAppName="hw2"
 sparkExecutorMemory="3g"
 sparkDriverMemory="3g"
 sparkCoreMax="4"
@@ -35,7 +35,7 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # input data.
-with open ("/root/homework/dataset/hw2/fackbook_Economy.csv",'r') as file:
+with open ("/root/homework/dataset/hw2/Fackbook_Economy.csv",'r') as file:
     data = csv.reader(file,delimiter = ",")
     fackbook_Economy = list(data)
 

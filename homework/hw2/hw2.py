@@ -52,7 +52,7 @@ def Dict(dictionary,newDictionary):
 
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
-sparkAppName="hw1"
+sparkAppName="hw2"
 sparkExecutorMemory="3g"
 sparkDriverMemory="3g"
 sparkCoreMax="4"
