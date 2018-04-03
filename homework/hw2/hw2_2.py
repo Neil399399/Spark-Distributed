@@ -36,6 +36,7 @@ sc = SparkContext(conf=conf)
 
 # input data.
 fackbook_Economy_RDD = sc.textFile("file:/root/homework/dataset/hw2/Facebook_Economy.csv")
-per_hour_result = fackbook_Economy_RDD.map(per_hour_popularity)
+header = fackbook_Economy_RDD.first()
+per_hour_result = fackbook_Economy_RDD.filter(lambda x : x!=haeder).map(per_hour_popularity)
 
 print("per_hour_average :",per_hour_result.collect())
