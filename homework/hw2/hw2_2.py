@@ -6,7 +6,21 @@ from collections import Counter
 import csv
 import os
 import re
- 
+
+
+def per_hour_popularity(line):
+    values = [x for x in line.strip().split(",")]
+    average = []
+    for x in range(0,len(values),+3):
+        tempAverage = values[x+1]+values[x+2]+values[x+3]
+        average.append(tempAverage)
+    return average
+
+def per_day_popularity(line):
+    values = [x for x in line.strip().split(",")]
+    for x in range(1,len(values)):
+        average = average+values[x]
+    return average
 
 # Spark configure.
 sparkMaster="spark://172.17.0.2:7077"
@@ -21,4 +35,11 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # input data.
-fackbook_Economy = sc.textFile("file:/homework/dataset/")
+with open ("/root/homework/dataset/hw2/fackbook_Economy.csv",'r') as file:
+    data = csv.reader(file,delimiter = ",")
+    fackbook_Economy = list(data)
+
+fackbook_Economy_RDD = sc.parallelize(fackbook_Economy)
+per_hour_result = fackbook_Economy_RDD.map(per_hour_popularity)
+
+print("per_hour_average :",per_hour_result.collect())
