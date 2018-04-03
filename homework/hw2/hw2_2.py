@@ -9,7 +9,7 @@ import re
 
 
 def per_hour_popularity(line):
-    values = [x for x in line.split(",")]
+    values = [x for x in line.strip().split(",")]
     average = []
     for x in range(0,len(values),+3):
         tempAverage = values[x+1]+values[x+2]+values[x+3]
@@ -35,11 +35,7 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 # input data.
-with open ("/root/homework/dataset/hw2/Facebook_Economy.csv",'r',encoding = 'utf8') as file:
-    data = csv.reader(file,delimiter = ",")
-    fackbook_Economy = list(data)
-
-fackbook_Economy_RDD = sc.parallelize(fackbook_Economy)
+fackbook_Economy_RDD = sc.testFile("file:/root/homework/dataset/hw2/Facebook_Economy.csv")
 per_hour_result = fackbook_Economy_RDD.map(per_hour_popularity)
 
 print("per_hour_average :",per_hour_result.collect())
