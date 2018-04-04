@@ -45,7 +45,7 @@ def per_day_popularity(line):
             tempAverage=tempAverage+float(line[x])
     return average
 
-def Do(fileName):
+def Do(fileName,resultName):
     # input data.
     with open (Dir+fileName+".csv",'r',encoding = 'utf8') as file:
         data = csv.reader(file,delimiter = ",")
@@ -59,7 +59,7 @@ def Do(fileName):
     per_day_result = data_RDD.filter(lambda x: x!=header).map(per_day_popularity).collect()
 
     # write in file (per_hour_result).
-    file = open(resultDir+fileName+"_perHour.txt",'a')
+    file = open(resultDir+resultName+"_perHour.txt",'a')
     writer = csv.writer(file)
     writer.writerow(newHeader_perHour)
     for i in range(0,len(per_hour_result)):
@@ -67,7 +67,7 @@ def Do(fileName):
     file.close()
 
     # write in file (per_day_result).
-    file = open(resultDir+fileName+"_perDay.txt",'a')
+    file = open(resultDir+resultName+"_perDay.txt",'a')
     writer = csv.writer(file)
     writer.writerow(newHeader_perDay)
     for i in range(0,len(per_day_result)):
@@ -89,11 +89,18 @@ conf = SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).set("spark.ex
 sc = SparkContext(conf=conf)
 
 
-fileList = ['Facebook_Economy','Facebook_Microsoft','Facebook_Obama','Facebook_Palestine'
-            ,'GooglePlus_Economy','GooglePlus_Microsoft','GooglePlus_Obama','GooglePlus_Palestine'
-            ,'LinkedIn_Economy','LinkedIn_Microsoft','LinkedIn_Obama','LinkedIn_Palestine']
+fileList_Facebook = ['Facebook_Economy','Facebook_Microsoft','Facebook_Obama','Facebook_Palestine']
+fileList_GooglePlus = ['GooglePlus_Economy','GooglePlus_Microsoft','GooglePlus_Obama','GooglePlus_Palestine']
+fileList_LinkedIn = ['LinkedIn_Economy','LinkedIn_Microsoft','LinkedIn_Obama','LinkedIn_Palestine']
 
 # start.
-for x in fileList:
-    Do(x)
+for x in fileList_Facebook:
+     Do(x,'Facebook')
+
+for x in fileList_GooglePlus:
+     Do(x,'GooglePlus')
+
+for x in fileList_LinkedIn:
+     Do(x,'LinkedIn')
+
 print("all success!")
