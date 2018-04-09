@@ -10,12 +10,9 @@ import re
 # global values.
 Dir = '/root/homework/dataset/hw2/'
 resultDir = '/root/homework/result/hw2/'
-newHeader_perHour = ['IDLink','1 hour','2 hour','3 hour','4 hour','5 hour','6 hour','7 hour','8 hour','9 hour','10 hour','11 hour','12 hour'
-                    ,'13 hour','14 hour','15 hour','16 hour','17 hour','18 hour','19 hour','20 hour','21 hour','22 hour','23 hour','24 hour'
-                    ,'25 hour','26 hour','27 hour','28 hour','29 hour','30 hour','31 hour','32 hour','33 hour','34 hour','35 hour','36 hour'
-                    ,'37 hour','38 hour','39 hour','40 hour','41 hour','42 hour','43 hour','44 hour','45 hour','46 hour','47 hour','48 hour']
+newHeader_perHour = ['IDLink','by hour']
+newHeader_perDay = ['IDLink','by day']
 
-newHeader_perDay = ['IDLink','Day 1','Day 2']
 
 def per_hour_popularity(line):
     average = []
@@ -23,12 +20,8 @@ def per_hour_popularity(line):
     average.append(ID)
     tempAverage=0
     for x in range(1,len(line)):
-        if x%3==0:
-            tempAverage=tempAverage+float(line[x])
-            average.append(tempAverage)
-            tempAverage=0
-        else:
-            tempAverage=tempAverage+float(line[x])
+        tempAverage=tempAverage+float(line[x])
+    average.append(tempAverage/48)
     return average
 
 def per_day_popularity(line):
@@ -37,12 +30,8 @@ def per_day_popularity(line):
     average.append(ID)
     tempAverage=0
     for x in range(1,len(line)):
-        if x%72==0:
-            tempAverage=tempAverage+float(line[x])
-            average.append(tempAverage)
-            tempAverage=0
-        else:
-            tempAverage=tempAverage+float(line[x])
+        tempAverage=tempAverage+float(line[x])
+    average.append(tempAverage/2)
     return average
 
 def Do(fileName,resultName):
