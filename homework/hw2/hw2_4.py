@@ -6,12 +6,13 @@ from collections import Counter
 import csv
 import os
 import re
+import string
 
 
 # TF
 def TFtitle(line):
     dict={}
-    titleWords = [x for x in re.split(' |, ',line[1].strip())]
+    titleWords = [x for x in line[1].split(' ') if x not in string.punctuation]
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
@@ -21,7 +22,7 @@ def TFtitle(line):
 
 def TFheadline(line):
     dict={}
-    headlineWords = [x for x in re.split(' |, |\u2019|\u2018|\u2014|\u2013|\u2026|\u201d|\u201c|:|(|)|\xe1|\xf1',line[2].strip())]
+    headlineWords = [x for x in line[2].split(' ') if x not in string.punctuation]
     for x in range(0,len(headlineWords)):
         if headlineWords[x] in dict:
             dict[headlineWords[x]]=dict[headlineWords[x]]+1
