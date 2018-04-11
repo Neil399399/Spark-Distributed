@@ -9,7 +9,7 @@ Hadoop/Spark distributed mode setup & simple calculation in MapReduce.
 ### HW2
 Statistics of various data types in MapReduce (co-occurrence).          
 Dataset link : https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms       
-Question :     
+Question :     
 1. Find title and headline most frequent words in news data.    
 2. Calculate the average popularity of each news by hour, and by day for each platform.
 3. Calculate the sum and average sentiment score of each topic.
