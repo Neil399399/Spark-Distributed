@@ -8,7 +8,12 @@ The major focus in this course will be utilizing parallel progamming in distribu
 Hadoop/Spark distributed mode setup & simple calculation in MapReduce.
 ### HW2
 Statistics of various data types in MapReduce (co-occurrence).          
-Dataset link : https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms
+Dataset link : https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms       
+Question :     
+1. Find title and headline most frequent words in news data.    
+2. Calculate the average popularity of each news by hour, and by day for each platform.
+3. Calculate the sum and average sentiment score of each topic.
+4. For the top-100 frequent words per topic in titles and headlines, calculate their co-occurrence matrices (100x100).
 ## Establish Spark Cluster(Standalone Mode)
 If you want to have one spark cluster in local, please follow the step to setting your enviroment.
 
