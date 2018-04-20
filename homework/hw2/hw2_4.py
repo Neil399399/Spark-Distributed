@@ -12,7 +12,7 @@ import string
 # TF
 def TFtitle(line):
     dict={}
-    titleWords = [x for x in line[1].split(' ') if x not in string.punctuation]
+    titleWords = re.findall('[a-zA-z]+', str(line[2]))
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
@@ -22,7 +22,7 @@ def TFtitle(line):
 
 def TFheadline(line):
     dict={}
-    headlineWords = [x for x in line[2].split(' ') if x not in string.punctuation]
+    headlineWords = re.findall('[a-zA-z]+', str(line[2]))
     for x in range(0,len(headlineWords)):
         if headlineWords[x] in dict:
             dict[headlineWords[x]]=dict[headlineWords[x]]+1
@@ -57,6 +57,7 @@ def Headline(line):
 # co-occurrence matrices
 def Do(dictionary,topic,column,fileName):
     array = []
+    header = []
     if column == 'title':
         Mi = Counter(dictionary).most_common(100)
         topic_list = topic.map(Title).take(topic.count())
@@ -65,6 +66,7 @@ def Do(dictionary,topic,column,fileName):
         topic_list = topic.map(Headline).take(topic.count())
 
     for (key,value) in Mi:
+        header.append(key)
         temparray = []
         for (key1,value1) in Mi: 
             count = 0
@@ -78,6 +80,7 @@ def Do(dictionary,topic,column,fileName):
     # write in file
     file = open(resultDir+fileName+".txt",'a')
     writer = csv.writer(file)
+    writer.writerow(header)
     for x in array:
         writer.writerow(x)
     file.close()
