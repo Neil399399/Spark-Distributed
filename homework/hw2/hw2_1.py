@@ -212,7 +212,6 @@ for x in range(0,len(total_headline)):
     Dict(total_headline[x],totalDict_headline)
 total_result.append(Counter(totalDict_headline).most_common(1))
 
-print(totalDict_title['...'])
 print("All Success!")
 print("-------------------------------------------------------------")
 
