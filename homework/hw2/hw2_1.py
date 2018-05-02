@@ -28,7 +28,7 @@ def TFtitle(line):
 
 def TFheadline(line):
     dict={}
-    headlineWords = [x for x in re.findall('[a-zA-z]+', str(line[2]))
+    headlineWords = [x for x in re.findall('[a-zA-z]+', str(line[2]))]
     for x in range(0,len(headlineWords)):
         if headlineWords[x] in dict:
             dict[headlineWords[x]]=dict[headlineWords[x]]+1
