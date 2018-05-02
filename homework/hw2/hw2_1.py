@@ -18,7 +18,7 @@ def Parser(line):
 # TF
 def TFtitle(line):
     dict={}
-    titleWords = [x for x in re.findall('[a-zA-z]+', str(line[2]))]
+    titleWords = re.findall('[a-zA-z]+', str(line[2]))
     for x in range(0,len(titleWords)):
         if titleWords[x] in dict:
             dict[titleWords[x]]=dict[titleWords[x]]+1
@@ -28,7 +28,7 @@ def TFtitle(line):
 
 def TFheadline(line):
     dict={}
-    headlineWords = [x for x in re.findall('[a-zA-z]+', str(line[2]))]
+    headlineWords = re.findall('[a-zA-z]+', str(line[2]))
     for x in range(0,len(headlineWords)):
         if headlineWords[x] in dict:
             dict[headlineWords[x]]=dict[headlineWords[x]]+1
@@ -212,7 +212,6 @@ for x in range(0,len(total_headline)):
     Dict(total_headline[x],totalDict_headline)
 total_result.append(Counter(totalDict_headline).most_common(1))
 
-print(totalDict_title['...'])
 print("All Success!")
 print("-------------------------------------------------------------")
 
