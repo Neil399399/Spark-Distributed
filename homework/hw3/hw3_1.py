@@ -5,6 +5,7 @@ import binascii
 import time
 import os
 import os.path
+import csv
 from datasketch import MinHash
 
 
@@ -18,7 +19,7 @@ def HtmlParser(data,tag):
 def Parser(line):
     document = []
     for x in line:
-        document.append(re.sub(' +', ' ', str(x).replace("<body>", "").replace("</body>", "").replace("", "").replace("\n", " ").lower()))
+        document.append( re.findall('[a-zA-z]+', str(line)))
         return document
 
 def single(k,document):
@@ -28,7 +29,6 @@ def single(k,document):
         single = document[index:index+k]
 
         # Hash the shingle to a 32-bit integer.
-        crc = binascii.crc32(str.encode(single)) & 0xffffffff
         hashList.append(single)
     return hashList
 
@@ -59,17 +59,6 @@ def getTriangleMatrices(hash_lists):
         matrice.append(temp)
     return matrice            
 
-
-# minHash.
-def minHash(data1,data2):
-    m1 = MinHash()
-    m2 = MinHash()
-    for d in data1:
-        m1.update(d.encode('utf8'))
-    for d in data2:
-        m2.update(d.encode('utf8'))
-    return m1.jaccard(m2)
-
 # global value.
 start_time = time.time()
 documents_hash_list = []
@@ -99,8 +88,8 @@ if __name__ == '__main__':
         for each_news in sub_data:
             # do parser.
             document = Parser(each_news)
-            # do single. k=10
-            result = single(10,document[0])
+            # do single. k=2
+            result = single(2,document[0])
             documents_hash_list.append(result)
     print('Done.')
 
@@ -114,7 +103,30 @@ if __name__ == '__main__':
     # print(len(documents_hash_list))
 
 
-    
+    # open file.
+    test =[]
+    print('Start minHash ...')
+    for file in os.listdir("result1/"):
+        if file.endswith(".txt"):
+            filename = os.path.join("result1", file)
+            f = open(filename, 'r')
+            data = f.readlines()
+            for x in data:
+                test.append(x.strip().split(','))
+                
+
+    min_hash = test[0]
+    print(len(min_hash))
+    for x in range(1,len(test)):
+            for y in range(0,len(test[x])):
+                if test[x][y] =='1':
+                    if min_hash[y] == '0':
+                        min_hash[y] = x
+
+    file = open('result2.txt', 'a')
+    writer = csv.writer(file)
+    writer.writerow(min_hash)
+    print('Done.')
     
 
    
