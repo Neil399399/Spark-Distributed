@@ -68,39 +68,39 @@ all_data = []
 
 if __name__ == '__main__':
     
-    # open file.
-    print('Start input file ...')
-    for file in os.listdir("data/"):
-        if file.endswith(".sgm"):
-            filename = os.path.join("data", file)
-            f = open(filename, 'rb')
-            data = f.read()
-            htmlResult = HtmlParser(data,'body')
-            all_data.append(htmlResult)
-    print('Done.')
+    # # open file.
+    # print('Start input file ...')
+    # for file in os.listdir("data/"):
+    #     if file.endswith(".sgm"):
+    #         filename = os.path.join("data", file)
+    #         f = open(filename, 'rb')
+    #         data = f.read()
+    #         htmlResult = HtmlParser(data,'body')
+    #         all_data.append(htmlResult)
+    # print('Done.')
             
 
 
 
-    # save body contents.
-    print('Start do parser and make single ...')
-    for sub_data in all_data:
-        for each_news in sub_data:
-            # do parser.
-            document = Parser(each_news)
-            # do single. k=2
-            result = single(2,document[0])
-            documents_hash_list.append(result)
-    print('Done.')
+    # # save body contents.
+    # print('Start do parser and make single ...')
+    # for sub_data in all_data:
+    #     for each_news in sub_data:
+    #         # do parser.
+    #         document = Parser(each_news)
+    #         # do single. k=2
+    #         result = single(2,document[0])
+    #         documents_hash_list.append(result)
+    # print('Done.')
 
-    # make matrices.
-    print('Start make matrices ...')
-    matrice = getTriangleMatrices(documents_hash_list)
-    print(len(matrice))
-    # print(documents_hash_list[0])
+    # # make matrices.
+    # print('Start make matrices ...')
+    # matrice = getTriangleMatrices(documents_hash_list)
+    # print(len(matrice))
+    # # print(documents_hash_list[0])
 
-    # A = MinHash(htmlResult[0],htmlResult[1])
-    # print(len(documents_hash_list))
+    # # A = MinHash(htmlResult[0],htmlResult[1])
+    # # print(len(documents_hash_list))
 
 
     # open file.
