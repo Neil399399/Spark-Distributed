@@ -85,4 +85,3 @@ if __name__ == '__main__':
     print('Done.')
     print('Runnibg time:',end_time2-end_time1)
     # transfer all_words in RDD format.
->>>>>>> df3a190adcf13c51c601168db78b8b00a7941c1a
