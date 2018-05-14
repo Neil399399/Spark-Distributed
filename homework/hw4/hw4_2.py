@@ -42,30 +42,16 @@ if __name__ == '__main__':
     print("Done.")
     print('Running time:', end_time1 - start_time)
 
-    # SVD.
-    print("Start do SVD ...")
     dataset1 = sc.parallelize(dataset)
     mat = RowMatrix(dataset1)
-    # Compute the top 5 singular values and corresponding singular vectors.
-    svd = mat.computeSVD(5, computeU=True)
-    U = svd.U
-    s = svd.s
-    V = svd.V
-    end_time2 = time.time()
-    print("Done.")
-    print('Running time:', end_time2 - end_time1)
 
     # Save result.
     print("Save results ...")
-    U_matrix = U.rows.collect()
 
-    output_dir = ""
+    output_dir = "/home/spark/Documents/spark_web/CPS2017/"
     # write_row(output_dir,"SVD_U_Matrix.txt",U_matrix)
-    write(output_dir,'SVD_S_Matrix.txt',str(s))
-    write(output_dir,'SVD_V_Matrix.txt',str(V))
     end_time3 = time.time()
     print("Done.")
-    print('Running time:', end_time3 - end_time2)
 
 
 
