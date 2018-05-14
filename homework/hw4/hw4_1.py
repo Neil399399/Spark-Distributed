@@ -40,6 +40,3 @@ if __name__ == '__main__':
     end_time = time.time()
     print('Done.')
     print('Running time:',end_time-start_time)
-    
-    print(len(all_data))
-    print(all_data[0])
