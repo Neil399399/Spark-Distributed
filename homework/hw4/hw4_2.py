@@ -5,6 +5,7 @@ import os
 import time
 from utilities.spark_context_handler import SparkContextHandler
 from pyspark.mllib.linalg.distributed import RowMatrix
+from pyspark.mllib.linalg import Matrices
 
 def write_row(dir,filename,data):
     file = open(dir+filename, 'a')
@@ -38,20 +39,25 @@ if __name__ == '__main__':
         if len(x) != 0:
             dataset.append(x)
 
+    dataset2 = []
+    for x in temp[0]:
+        dataset2.append(x)
+
     end_time1 = time.time()
     print("Done.")
     print('Running time:', end_time1 - start_time)
 
-    dataset1 = sc.parallelize(dataset)
-    mat = RowMatrix(dataset1)
+    # Implement matrix mulitplication.
+    matrix1 = sc.parallelize(dataset)
+    ## Used RowMatrix make first matrix. (33150,10051)
+    mat1 = RowMatrix(matrix1)
+    ## Used Matrice make second matrix. (10051,1)
+    dm2 = Matrices.dense(10051,1,dataset2)
+    mat3 = mat1.multiply(dm2)
 
     # Save result.
     print("Save results ...")
-
     output_dir = "/home/spark/Documents/spark_web/CPS2017/"
-    # write_row(output_dir,"SVD_U_Matrix.txt",U_matrix)
+    write_row(output_dir,"matrix(33150x1).txt",mat3.rows.collect())
     end_time3 = time.time()
     print("Done.")
-
-
-
