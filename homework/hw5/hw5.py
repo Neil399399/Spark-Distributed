@@ -31,7 +31,7 @@ if __name__ == '__main__':
             for x in temp:
                 data.append(x)
 
-    for x in data[4:10]:
+    for x in data[4:]:
         # x[0] -- FromNodeId attribute.
         if x[0] not in FromNodeId:
             FromNodeId[x[0]]=1

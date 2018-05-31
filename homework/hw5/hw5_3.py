@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # search.
     fromNode_temp_list = []
     toNode_temp_list = []
-    for x in data[4:10]:
+    for x in data[4:]:
         if x[1] == input_node:
             fromNode_temp_list.append(x[0])
         if x[0] == input_node:
